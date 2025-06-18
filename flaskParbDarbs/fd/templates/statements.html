@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+    {% block saturs %}
+    <!--lietotāju izvēlēšana-->
+    <form method="post" action = "/statements/izveleties">
+    <h3>Lietotāju izvēlēšana</h3>
+    <select id = "lietotajvards" name = "lietotajvards">
+      {% for i in lietotajvardi %}
+      <option value = "{{i[0]}}">{{i[0]}}</option>
+      {% endfor %}
+    </select>
+    <h3>Ievadi ziņojumu</h3>
+    <input type="text" id="zinojums" name="zinojums" placeholder="Ievadi ziņojumu šeit">
+    <input type="submit" value="Izveidot ziņojumu">
+    </form>
+    <h1>Zinojumi</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Vārds</th>
+                <th>Uzvārds</th>
+                <th>Lietotājvārds</th>
+                <th>Ziņojums</th>
+                <th>Datums</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for zinojums in zinojumi %}
+            <tr>
+                <td>{{ zinojums[0] }}</td>
+                <td>{{ zinojums[1] }}</td>
+                <td>{{ zinojums[2] }}</td>
+                <td>{{ zinojums[3] }}</td>
+                <td>{{ zinojums[4] }}</td>
+                <td>{{ zinojums[5] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% endblock %}
+
+
